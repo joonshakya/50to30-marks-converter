@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0 minimum-scale=1"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0.2rem;
+      box-sizing: border-box;
+      width: 100vw;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .marks {
+      font-size: 2rem;
+      width: auto;
+      margin-bottom: 0.2rem;
+    }
+
+    .top {
+      display: flex;
+    }
+
+    button {
+        padding: 1rem;
+    }
+
+    .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5em;
+      flex: 1;
+    }
+  </style>
+  <body>
+    <input type="text" oninput="calculate()" class="marks" />
+    <button onclick="clearMarks()">Next</button>
+    <div class="bottom"></div>
+  </body>
+  <script>
+    const input = document.querySelector(".marks");
+    const bottom = document.querySelector(".bottom");
+    const clearMarks = () => {
+      input.value = "";
+      calculate();
+      input.focus();
+    };
+    const calculate = (e) => {
+      if (input.value) {
+        bottom.textContent = +((parseInt(input.value) / 50) * 30).toFixed(2);
+      } else {
+        bottom.textContent = "";
+      }
+    };
+  </script>
+</html>
