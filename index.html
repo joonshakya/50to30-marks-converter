@@ -31,19 +31,21 @@
 
     button {
         padding: 1rem;
+        font-size: 1.4rem;
     }
 
     .bottom {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       font-size: 5em;
+      padding: .2rem;
       flex: 1;
     }
   </style>
   <body>
-    <input type="text" oninput="calculate()" class="marks" />
-    <button onclick="clearMarks()">Next</button>
+    <input type="number" placeholder="Click here to type" oninput="calculate()" class="marks" />
+    <button onclick="clearMarks()">Reset</button>
     <div class="bottom"></div>
   </body>
   <script>
