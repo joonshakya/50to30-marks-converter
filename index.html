@@ -19,6 +19,11 @@
       display: flex;
       flex-direction: column;
     }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
     .marks {
       font-size: 2rem;
       width: auto;
@@ -29,7 +34,7 @@
       display: flex;
     }
 
-    button {
+    .submit-btn {
         padding: 1rem;
         font-size: 1.4rem;
     }
@@ -44,14 +49,17 @@
     }
   </style>
   <body>
-    <input type="number" placeholder="Click here to type" oninput="calculate()" class="marks" />
-    <button onclick="clearMarks()">Reset</button>
+    <form onsubmit="clearMarks(event)">
+      <input type="number" placeholder="Click here to type" oninput="calculate()" class="marks" />
+      <input class="submit-btn" type="submit" value="Reset"></input>
+    </form>
     <div class="bottom"></div>
   </body>
   <script>
     const input = document.querySelector(".marks");
     const bottom = document.querySelector(".bottom");
-    const clearMarks = () => {
+    const clearMarks = (event) => {
+      event.preventDefault();
       input.value = "";
       calculate();
       input.focus();
